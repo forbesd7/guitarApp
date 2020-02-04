@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import "./app.css";
+import React from "react";
 import Navbar from "./components/Navbar";
 import PracticeChoices from "./components/PracticeChoices";
 import { useSelector } from "react-redux";
@@ -16,14 +17,14 @@ const App = () => {
         return <ListeningOptions />;
       }
       default:
-        return "no view dawg";
+        return <PracticeChoices />;
     }
   };
   return (
-    <Fragment>
+    <div className="main">
       <Navbar />
       {renderView()}
-    </Fragment>
+    </div>
   );
 };
 export default App;
