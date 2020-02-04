@@ -1,7 +1,29 @@
-import React from "react";
+import React, { Fragment } from "react";
+import Navbar from "./components/Navbar";
+import PracticeChoices from "./components/PracticeChoices";
+import { useSelector } from "react-redux";
+import ListeningOptions from "./components/ListeningOptions";
 
 const App = () => {
-  return <div>hi</div>;
-};
+  const curView = useSelector(state => state.curView);
 
+  const renderView = () => {
+    switch (curView) {
+      case "practiceChoices": {
+        return <PracticeChoices />;
+      }
+      case "listeningOptions": {
+        return <ListeningOptions />;
+      }
+      default:
+        return "no view dawg";
+    }
+  };
+  return (
+    <Fragment>
+      <Navbar />
+      {renderView()}
+    </Fragment>
+  );
+};
 export default App;
